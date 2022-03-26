@@ -1,12 +1,17 @@
 import math
-for t in range(int(input())):
-    n=int(input())
-    x=math.floor(math.sqrt((n-1)))
-    r,c=x+1,n-(x)**2
-    if c>r:
-        c=r-c%r
+for t in range(1,int(input())+1):
+    r,c=map(int,input().split())
+    if r>c:
         r,c=c,r
-
-    if x%2:
-        r,c=c,r
-    print("Case "+str(t+1)+":",r,c)
+    if r==1:
+        an=c
+    elif r==2:
+        an=(c//4)*4
+        if c%4==3:
+            an+=4
+        else:
+            an+=(c%4)*2
+    else:
+        an=(r*c)//2+(r*c)%2
+    
+    print("Case "+str(t)+":",an)
